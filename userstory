@@ -1,0 +1,19 @@
+                       Kryteria Akceptacji:
+
+1.Po zalogowaniu mogę przeglądać listę swoich przechowywanych haseł.
+2.Mogę dodać nowe hasło do swojej listy, podając nazwę serwisu, login i hasło.
+3.Mogę edytować istniejące wpisy z hasłami, aby aktualizować informacje.
+4.Mogę usuwać wpisy z hasłami, które nie są już potrzebne.
+5.Hasła są przechowywane w sposób bezpieczny i zaszyfrowany w bazie danych.
+6.W celu dostępu do swoich haseł muszę podać hasło główne lub użyć autoryzacji dwuskładnikowej.
+7.Mogę generować silne losowe hasła przy dodawaniu nowych wpisów.
+8.Mogę sortować i filtrować swoje hasła według nazwy serwisu lub daty dodania.
+9.Istnieje opcja zmiany hasła głównego do aplikacji.
+10.W razie zapomnienia hasła głównego mogę zresetować je za pomocą procedury odzyskiwania.
+11.Aplikacja wyświetla ostrzeżenie, gdy próbuję używać słabego hasła.
+12.W aplikacji istnieje możliwość wylogowania się, aby zapewnić bezpieczeństwo.
+                       Dodatkowe Usprawnienia:
+1.Integracja z systemem zarządzania tożsamościami (Single Sign-On) dla większej wygody.
+2.Automatyczne sprawdzanie naruszeń haseł w oparciu o znane bazy danych naruszeń.
+3.Notatki lub dodatkowe pola, w których mogę zapisywać dodatkowe informacje dotyczące kont.
+4.Powiadomienia o przypominaniu o zmianie haseł w regularnych odstępach czasu.
