@@ -1,7 +1,7 @@
 package com.mainpackage.PasswordManager.Util;
 
 import com.mainpackage.PasswordManager.model.CustomUser;
-import org.springframework.stereotype.Service;
+
 
 
 public class UserUtilService {
