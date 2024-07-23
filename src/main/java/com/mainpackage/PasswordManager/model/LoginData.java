@@ -13,9 +13,10 @@ public class LoginData {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long loginDataid;
-    private Long elementid;
+    private Long folderid;
     private String userName;
     private String password;
     private String URL;
     private String descryption;
+    private String name;
 }
