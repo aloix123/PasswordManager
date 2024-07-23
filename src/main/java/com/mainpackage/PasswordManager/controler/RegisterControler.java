@@ -21,7 +21,6 @@ public class RegisterControler {
     public ResponseEntity<String> ShowRegisterInterface (@RequestBody CustomUser customUser){
         userUtilService.SetUserParameters(customUser);
         registerService.saveUser(customUser);
-        System.out.println(UserUtil.getEmail());
         return new ResponseEntity<>(" you created a user!!", HttpStatus.OK);
     }
 }

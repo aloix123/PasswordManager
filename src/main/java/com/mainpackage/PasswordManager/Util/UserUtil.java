@@ -1,10 +1,19 @@
 package com.mainpackage.PasswordManager.Util;
 
 public class UserUtil {
+    private static Long id;
     private static String login;
     private static String mainPassword;
     private static String email;
     private static byte[] image;
+
+    public static  Long getId() {
+        return id;
+    }
+
+    public static void setId(Long id) {
+        UserUtil.id = id;
+    }
 
     public static String getLogin() {
         return login;
