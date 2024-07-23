@@ -14,6 +14,6 @@ public class UserUtilService {
 
     }
     public static  boolean isUserLogedIn(){
-        return UserUtil.getId().describeConstable().isEmpty();
+        return !UserUtil.getId().describeConstable().isEmpty();
     }
 }
