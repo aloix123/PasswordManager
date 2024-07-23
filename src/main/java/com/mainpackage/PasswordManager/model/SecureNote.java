@@ -13,6 +13,7 @@ public class SecureNote {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long secureNoteid;
-    private Long elementid;
+    private Long folderid;
     private String note;
+    private String name;
 }

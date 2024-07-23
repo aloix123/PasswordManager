@@ -13,10 +13,11 @@ public class Card {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int cardid;
-    private Long elementid;
+    private Long folderid;
     private String owner;
     private String publisher;
     private String numbers;
     private String secureCode;
     private String descryption;
+    private String name;
 }
