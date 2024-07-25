@@ -21,13 +21,12 @@ public class Logincontroler {
     @Autowired
     CustomUserServiceImp customUserServiceImp;
     UserUtilService userUtilService=new UserUtilService();
-    Logger logger = LoggerFactory.getLogger(Logincontroler.class);
+
 
     @PostMapping("/login")
     public ResponseEntity<String> ShowRegisterInterface (@RequestBody CustomUser customUser){
         customUser.setUserid(customUserServiceImp.getLogdUserIdByLoginAndPassword(customUser.getLogin(), customUser.getMainPassword()));
         userUtilService.SetUserParameters(customUser);
-        logger.info(UserUtil.getLogin());
         if(loginServiceImp.IsUserInDataBase(customUser)){
             return new ResponseEntity<>(" you loged in!!", HttpStatus.OK);
         }
