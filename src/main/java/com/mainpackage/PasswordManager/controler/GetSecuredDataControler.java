@@ -26,7 +26,7 @@ public class GetSecuredDataControler {
         List<ObjectNode> bunchOfObjectNodes = new ArrayList<>();
         bunchOfObjectNodes.addAll(getLoginDataElement());
         bunchOfObjectNodes.addAll(getCardElement());
-        bunchOfObjectNodes.addAll(getSecureNoteElement());0
+        bunchOfObjectNodes.addAll(getSecureNoteElement());
         return bunchOfObjectNodes;
     }
 
