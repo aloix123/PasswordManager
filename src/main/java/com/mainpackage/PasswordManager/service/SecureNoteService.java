@@ -23,4 +23,16 @@ public class SecureNoteService {
     public void deleteSecureNoteById(Long secureNoteId){
         secureNoteRepository.deleteById(secureNoteId);
     }
+
+    public List<Optional<SecureNote>> getAllSecureNotesByuserId(Long userId){
+        return secureNoteRepository.getSEcureNoteByUserId(userId);
+    }
+
+    public String getSafeNameByfolderI(Long folderId){
+        return secureNoteRepository.getSafeNameByFolderid(folderId);
+    }
+
+    public String getFolderNameByFolderId(Long folderId){
+        return secureNoteRepository.getFolderNameByfolderId(folderId);
+    }
 }

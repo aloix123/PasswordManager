@@ -17,10 +17,28 @@ public class LoginDataServiceImp {
     public void createLoginDataForFolder(LoginData loginData){
         loginDataRepository.save(loginData);
     }
+
     public List<Optional<LoginData>> getLoginDataForFolder(Long folderId){
         return loginDataRepository.getLoginDataByfolderId(folderId);
     }
+
     public void DeleteLoginDataForFolderById(Long loginDataId){
         loginDataRepository.deleteById(loginDataId);
+    }
+
+    public List<LoginData> getAllLoginData(){
+        return loginDataRepository.findAll();
+    }
+
+    public String getFolderNameByfolderId(Long folderId){
+        return loginDataRepository.getfolderNameByFolderId(folderId);
+    }
+
+    public String getSafeNamebyfolderId(Long folderId){
+        return loginDataRepository.getSafeNameByFolderId(folderId);
+    }
+
+    public List<Optional<LoginData>> getAllLoginDataByUserId(Long userId){
+        return loginDataRepository.getLoginDataByCustomUserId(userId);
     }
 }
