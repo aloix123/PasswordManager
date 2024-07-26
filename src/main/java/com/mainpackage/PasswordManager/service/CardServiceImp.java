@@ -24,4 +24,16 @@ public class CardServiceImp {
     public void removeCard(Long cardid){
         cardRepository.deleteById(cardid);
     }
+
+    public String getSafeNameByfolderId(Long folderid) {
+        return cardRepository.getSafeNameByFolderid(folderid);
+    }
+
+    public List<Optional<Card>> getAllCardsByuserId(Long userid) {
+        return cardRepository.getAllCardsBycustomUserId(userid);
+    }
+
+    public String getFolderName(Long folderid) {
+        return cardRepository.getFolderNameByFolderid(folderid);
+    }
 }
