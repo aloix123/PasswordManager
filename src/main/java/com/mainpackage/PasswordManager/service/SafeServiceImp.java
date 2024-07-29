@@ -29,4 +29,7 @@ public class SafeServiceImp {
             throw new NoSuchElementException("there is no safe with that id!!");
         }
     }
+    public void deleteAllByUserId(Long userid){
+        safeRepository.deleteSafeByUserid(userid);
+    }
 }

@@ -3,9 +3,11 @@ package com.mainpackage.PasswordManager.repository;
 import com.mainpackage.PasswordManager.model.Card;
 import com.mainpackage.PasswordManager.model.SecureNote;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Optional;
@@ -23,4 +25,9 @@ public interface CardRepository extends JpaRepository<Card,Long> {
 
     @Query("SELECT f.name FROM Folder f WHERE f.folderid = :folderid")
     String getFolderNameByFolderid(@Param("folderid") Long folderid);
+
+    @Transactional
+    @Modifying
+    @Query("DELETE FROM Card cd WHERE cd.folderid IN (SELECT f.folderid FROM Folder f JOIN Safe s ON f.safeid = s.safeid WHERE s.userid = :userid)")
+    void deleteByCustomUserId(@Param("userid") Long userid);
 }

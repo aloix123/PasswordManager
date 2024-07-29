@@ -36,4 +36,8 @@ public class CardServiceImp {
     public String getFolderName(Long folderid) {
         return cardRepository.getFolderNameByFolderid(folderid);
     }
+
+    public void deleteCardsByUserId(Long id){
+        cardRepository.deleteByCustomUserId(id);
+    }
 }

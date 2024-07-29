@@ -35,4 +35,8 @@ public class SecureNoteService {
     public String getFolderNameByFolderId(Long folderId){
         return secureNoteRepository.getFolderNameByfolderId(folderId);
     }
+
+    public void deleteByUserId(Long userid){
+        secureNoteRepository.deleteByCustomUserId(userid);
+    }
 }

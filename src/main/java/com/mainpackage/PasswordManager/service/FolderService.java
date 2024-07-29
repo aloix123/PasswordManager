@@ -22,7 +22,7 @@ public class FolderService {
         folderRepository.save(folder);
     }
 
-    public void deleteFolderById(Long folderId) {
-        folderRepository.deleteById(folderId.intValue());
+    public void deleteFolderById(Long userid) {
+        folderRepository.deleteFolderByUserId(userid);
     }
 }

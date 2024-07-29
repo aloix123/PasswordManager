@@ -21,7 +21,6 @@ public class RegisterControler {
     @PostMapping("/getStarted")
     public ResponseEntity<String> ShowRegisterInterface (@RequestBody CustomUser customUser) throws Exception {
         userUtilService.SetUserParameters(customUser);
-        customUser= encryptDataClass.getHashedUser(customUser);
         registerService.saveUser(customUser);
         return new ResponseEntity<>(" you created a user!!", HttpStatus.OK);
     }
