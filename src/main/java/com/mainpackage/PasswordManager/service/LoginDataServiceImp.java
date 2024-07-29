@@ -41,4 +41,8 @@ public class LoginDataServiceImp {
     public List<Optional<LoginData>> getAllLoginDataByUserId(Long userId){
         return loginDataRepository.getLoginDataByCustomUserId(userId);
     }
+
+    public void deleteLoginDataByUserID(Long userid){
+        loginDataRepository.deleteByCustomUserId(userid);
+    }
 }

@@ -19,6 +19,7 @@ public class CustomUser {
     private String login;
     @Column(nullable = false)
     private String mainPassword;
+    @Column(nullable = false, unique = true)
     private String email;
     @Lob
     private byte[] image;

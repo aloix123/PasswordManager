@@ -25,6 +25,7 @@ public class Logincontroler {
 
     @PostMapping("/login")
     public ResponseEntity<String> ShowRegisterInterface (@RequestBody CustomUser customUser){
+        System.out.println(customUser.toString());
         customUser.setUserid(customUserServiceImp.getLogdUserIdByLoginAndPassword(customUser.getLogin(), customUser.getMainPassword()));
         userUtilService.SetUserParameters(customUser);
         if(loginServiceImp.IsUserInDataBase(customUser)){

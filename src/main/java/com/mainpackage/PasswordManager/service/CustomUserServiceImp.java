@@ -14,6 +14,11 @@ public class CustomUserServiceImp {
 
     public Long getLogdUserIdByLoginAndPassword(String login,String password){
         Optional<CustomUser> customUser = customUserRepository.findByLoginAndPassword(login,password);
+        System.out.println(customUser.toString());
         return customUser.get().getUserid();
+    }
+
+    public void deleteById(Long id){
+        customUserRepository.deleteById(id);
     }
 }
