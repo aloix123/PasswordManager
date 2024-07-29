@@ -23,4 +23,13 @@ public class CustomUser {
     private String email;
     @Lob
     private byte[] image;
+
+    public boolean isSomeDataNull(){
+        if(this.login.isEmpty() ||this.mainPassword.isEmpty() || this.email.isEmpty() ){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
 }

@@ -11,4 +11,10 @@ import java.util.Optional;
 public interface CustomUserRepository extends JpaRepository<CustomUser,Long> {
     @Query("SELECT u FROM CustomUser u WHERE u.login =:login AND u.mainPassword = :mainPassword")
     Optional<CustomUser> findByLoginAndPassword(String login, String mainPassword);
+
+    @Query("SELECT u FROM CustomUser u WHERE u.login =:login")
+    Optional<CustomUser> findByLogin(String login);
+
+    @Query("SELECT u FROM CustomUser u where u.email=:email")
+    Optional<CustomUser> findByEamail(String email);
 }
