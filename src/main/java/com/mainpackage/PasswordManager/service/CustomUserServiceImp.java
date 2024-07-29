@@ -21,4 +21,12 @@ public class CustomUserServiceImp {
     public void deleteById(Long id){
         customUserRepository.deleteById(id);
     }
+
+    public boolean isLoginrepeting(String login){
+        return customUserRepository.findByLogin(login).isPresent();
+    }
+
+    public boolean isEmailRepetind(String email){
+        return customUserRepository.findByEamail(email).isPresent();
+    }
 }
