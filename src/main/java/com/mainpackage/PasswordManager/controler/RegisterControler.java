@@ -1,10 +1,17 @@
 package com.mainpackage.PasswordManager.controler;
 
+import com.mainpackage.PasswordManager.Action.CreateDefaultFolderAndSafeClass;
 import com.mainpackage.PasswordManager.Action.EncryptDataClass;
+import com.mainpackage.PasswordManager.Util.UserUtil;
 import com.mainpackage.PasswordManager.Util.UserUtilService;
 import com.mainpackage.PasswordManager.model.CustomUser;
+import com.mainpackage.PasswordManager.model.Folder;
+import com.mainpackage.PasswordManager.model.Safe;
+import com.mainpackage.PasswordManager.repository.CustomUserRepository;
 import com.mainpackage.PasswordManager.service.CustomUserServiceImp;
+import com.mainpackage.PasswordManager.service.FolderService;
 import com.mainpackage.PasswordManager.service.RegisterService;
+import com.mainpackage.PasswordManager.service.SafeServiceImp;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -18,6 +25,10 @@ public class RegisterControler {
     private RegisterService registerService;
     @Autowired
     private CustomUserServiceImp customUserServiceImp;
+    @Autowired
+    private CustomUserRepository customUserRepository;
+    @Autowired
+    private CreateDefaultFolderAndSafeClass createDefaultFolderAndSafeClass;
     UserUtilService userUtilService=new UserUtilService();
     EncryptDataClass encryptDataClass =new EncryptDataClass();
 
@@ -33,9 +44,11 @@ public class RegisterControler {
             return new ResponseEntity<>("there is  an account with the same email",HttpStatus.BAD_REQUEST);
         }
         else{
-            userUtilService.SetUserParameters(customUser);
-            registerService.saveUser(customUser);
+            createDefaultFolderAndSafeClass.execute(customUser);
             return new ResponseEntity<>(" you created a user!!", HttpStatus.OK);
         }
     }
+
+
+
 }
