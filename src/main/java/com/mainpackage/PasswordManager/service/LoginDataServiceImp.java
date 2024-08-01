@@ -45,4 +45,6 @@ public class LoginDataServiceImp {
     public void deleteLoginDataByUserID(Long userid){
         loginDataRepository.deleteByCustomUserId(userid);
     }
+
+
 }

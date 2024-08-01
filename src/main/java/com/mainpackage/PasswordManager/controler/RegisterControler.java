@@ -1,5 +1,6 @@
 package com.mainpackage.PasswordManager.controler;
 
+import com.mainpackage.PasswordManager.Action.CreateDefaultFolderAndSafeClass;
 import com.mainpackage.PasswordManager.Action.EncryptDataClass;
 import com.mainpackage.PasswordManager.Util.UserUtil;
 import com.mainpackage.PasswordManager.Util.UserUtilService;
@@ -24,12 +25,12 @@ public class RegisterControler {
     private RegisterService registerService;
     @Autowired
     private CustomUserServiceImp customUserServiceImp;
-
-    UserUtilService userUtilService=new UserUtilService();
-    EncryptDataClass encryptDataClass =new EncryptDataClass();
     @Autowired
     private CustomUserRepository customUserRepository;
-
+    @Autowired
+    private CreateDefaultFolderAndSafeClass createDefaultFolderAndSafeClass;
+    UserUtilService userUtilService=new UserUtilService();
+    EncryptDataClass encryptDataClass =new EncryptDataClass();
 
     @PostMapping("/getStarted")
     public ResponseEntity<String> ShowRegisterInterface (@RequestBody CustomUser customUser) throws Exception {
@@ -43,38 +44,11 @@ public class RegisterControler {
             return new ResponseEntity<>("there is  an account with the same email",HttpStatus.BAD_REQUEST);
         }
         else{
-            createUser(customUser);
+            createDefaultFolderAndSafeClass.execute(customUser);
             return new ResponseEntity<>(" you created a user!!", HttpStatus.OK);
         }
     }
 
-    @Autowired
-    private SafeServiceImp safeServiceImp;
-    @Autowired
-    private FolderService folderService;
 
-    public void createDefaultUserAssets(Long id){
-        String defaultSafeName="main";
-        Safe defaultSafe=new Safe();
-        defaultSafe.setUserid(id);
-        defaultSafe.setName(defaultSafeName);
-        safeServiceImp.createSafe(defaultSafe);
-        String defaultFolderName="none";
-        Folder defaultFolder=new Folder();
-        defaultFolder.setSafeid(defaultSafe.getSafeid());
-        defaultFolder.setName(defaultFolderName);
-        folderService.save(defaultFolder);
-    }
-
-    public void  createUser(CustomUser customUser){
-        CustomUser user=new CustomUser();
-        customUser.setUserid(user.getUserid());
-        registerService.saveUser(customUser);
-        userUtilService.SetUserParameters(customUser);
-        Long id=UserUtil.getId();
-        System.out.println(id);
-        createDefaultUserAssets(id);
-
-    }
 
 }
